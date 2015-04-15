@@ -82,6 +82,7 @@ def convert_from_raw():
     raw_file_names = ifilter(lambda x: x.endswith('.dds'), raw_dir_files)
     for raw_file_name in raw_file_names:
         raw_file_path = os.path.join(RAW_OVERVIEWS_DIR, raw_file_name)
+        # Don't think we need to backup DDS file
         with BackedUpFile(raw_file_path):
             if not os.path.isfile(raw_file_path):
                 sys.exit('wat')
@@ -98,8 +99,12 @@ def convert_from_raw():
 
             texture.save(dest_path, encoder=PNGImageEncoder())
 
+            # Resize image using PIL (Pyglet raised seg/bus faults)
             image = Image.open(dest_path)
+
+            # Not sure why but the images are being flipped somehow
             image = image.transpose(Image.FLIP_TOP_BOTTOM)
+
             image = image.resize((768, 768))
             image.save(dest_path)
 

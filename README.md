@@ -2,12 +2,14 @@
 
 This is a collection of radar overviews, and eventually thumbnails,
 in more usable formats, with scripts for easily updating them.
-
 The scripts use [pyglet](https://warehouse.python.org/project/pyglet/) to convert 
 the raw DDS files to PNG files, and then [Pillow](https://warehouse.python.org/project/Pillow/) to resize
 the PNG files.
 
 The converting stuff should work for any DDS files to PNG.
+
+If you're just looking for image versions of the maps, go to the [Releases](https://github.com/zoidbergwill/csgo-overviews/releases)
+and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overviews/releases/download/0.0.1/overviews.zip)
 
 ## Updating the overviews
 

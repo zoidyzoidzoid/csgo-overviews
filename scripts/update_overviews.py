@@ -105,7 +105,7 @@ def convert_from_raw():
             # Not sure why but the images are being flipped somehow
             image = image.transpose(Image.FLIP_TOP_BOTTOM)
 
-            image = image.resize((768, 768))
+            image = image.resize((1024, 1024))
             image.save(dest_path)
 
 if __name__ == '__main__':

@@ -89,7 +89,7 @@ def convert_from_raw():
             texture = pyglet.image.load(raw_file_path).get_texture()
 
             processed_file_name = os.path.split(raw_file_path)[-1].replace(
-                '_radar.dds', '.png')
+                '_radar.dds', '.jpg')
 
             dest_path = os.path.join(OVERVIEWS_DIR, processed_file_name)
 
@@ -97,7 +97,7 @@ def convert_from_raw():
                 create_backup_file(dest_path)
                 os.remove(dest_path)
 
-            texture.save(dest_path, encoder=PNGImageEncoder())
+            texture.save(dest_path)
 
             # Resize image using PIL (Pyglet raised seg/bus faults)
             image = Image.open(dest_path)

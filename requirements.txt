@@ -1,2 +1,2 @@
-Pillow==2.8.1
-pyglet==1.2.2
+Pillow==3.0.0
+pyglet==1.2.4

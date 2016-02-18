@@ -9,7 +9,7 @@ the PNG files.
 The converting stuff should work for any DDS files to PNG.
 
 If you're just looking for image versions of the maps, go to the [Releases](https://github.com/zoidbergwill/csgo-overviews/releases)
-and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overviews/releases/download/0.0.1/overviews.zip)
+and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overviews/releases/download/0.0.3/overviews.zip)
 
 ## Updating the overviews
 

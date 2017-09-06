@@ -43,13 +43,11 @@ Usage::
 
 """
 
-from itertools import ifilter
 import os
 import shutil
 import sys
 
 import pyglet
-from pyglet.image.codecs.png import PNGImageEncoder
 from PIL import Image
 
 BASE_DIR = os.getcwd()
@@ -71,7 +69,7 @@ class BackedUpFile(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         if exc_type is not None:
-            print exc_type, exc_value, traceback
+            print(exc_type, exc_value, traceback)
 
         os.remove(self.backup_path)
         return self
@@ -79,7 +77,7 @@ class BackedUpFile(object):
 
 def convert_from_raw():
     raw_dir_files = os.listdir(RAW_OVERVIEWS_DIR)
-    raw_file_names = ifilter(lambda x: x.endswith('.dds'), raw_dir_files)
+    raw_file_names = filter(lambda x: x.endswith('.dds'), raw_dir_files)
     for raw_file_name in raw_file_names:
         raw_file_path = os.path.join(RAW_OVERVIEWS_DIR, raw_file_name)
         # Don't think we need to backup DDS file

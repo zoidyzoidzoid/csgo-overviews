@@ -44,6 +44,7 @@ Usage::
 """
 
 import os
+import re
 import shutil
 import sys
 
@@ -81,7 +82,7 @@ class BackedUpFile(object):
 
 def convert_from_raw():
     raw_dir_files = os.listdir(RAW_OVERVIEWS_DIR)
-    raw_file_names = filter(lambda x: x.endswith('.dds'), raw_dir_files)
+    raw_file_names = filter(lambda x: x.endswith('_radar.dds'), raw_dir_files)
     for raw_file_name in raw_file_names:
         raw_file_path = os.path.join(RAW_OVERVIEWS_DIR, raw_file_name)
         # Don't think we need to backup DDS file
@@ -104,8 +105,9 @@ def convert_from_raw():
             # Resize image using PIL (Pyglet raised seg/bus faults)
             image = Image.open(dest_path)
 
-            # Not sure why but the images are being flipped somehow
-            image = image.transpose(Image.FLIP_TOP_BOTTOM)
+            # Only some need to be flipped
+            # # Not sure why but the images are being flipped somehow
+            # image = image.transpose(Image.FLIP_TOP_BOTTOM)
 
             image = image.resize((1024, 1024))
             image.save(dest_path)
@@ -116,3 +118,11 @@ if __name__ == '__main__':
                  'Are you running this from the root of the repo?')
 
     convert_from_raw()
+
+
+description_file = open('overviews/raw/de_cbble.txt').read()
+map_name = re.search(r'"(.*)"\n', description_file, re.MULTILINE).groups()
+maps = {}
+maps[map_name] = {}
+for k, v in re.findall(r'"(.*)"\t+"(.*)".*\n', description_file, re.MULTILINE):
+    maps[map_name][k] = v

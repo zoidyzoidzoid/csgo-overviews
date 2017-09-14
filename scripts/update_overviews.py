@@ -81,7 +81,7 @@ class BackedUpFile(object):
 
 def convert_from_raw():
     raw_dir_files = os.listdir(RAW_OVERVIEWS_DIR)
-    raw_file_names = filter(lambda x: x.endswith('.dds'), raw_dir_files)
+    raw_file_names = filter(lambda x: x.endswith('_radar.dds'), raw_dir_files)
     for raw_file_name in raw_file_names:
         raw_file_path = os.path.join(RAW_OVERVIEWS_DIR, raw_file_name)
         # Don't think we need to backup DDS file

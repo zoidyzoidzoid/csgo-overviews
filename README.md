@@ -1,5 +1,7 @@
 # Counter-Strike: Global Offensive map overviews
 
+### [Browse Overviews](overviews.md)
+
 This is a collection of radar overviews, and eventually thumbnails,
 in more usable formats, with scripts for easily updating them.
 The scripts use [pyglet](https://warehouse.python.org/project/pyglet/) to convert 

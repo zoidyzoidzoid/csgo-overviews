@@ -70,19 +70,17 @@ class BackedUpFile(object):
 
     def __enter__(self):
         shutil.copy(self.path, self.backup_path)
+        return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        if exc_type is not None:
-            print(exc_type, exc_value, traceback)
-
         os.remove(self.backup_path)
-        return self
 
 
 def convert_from_raw():
     raw_dir_files = os.listdir(RAW_OVERVIEWS_DIR)
     raw_file_names = filter(lambda x: x.endswith('_radar.dds'), raw_dir_files)
     for raw_file_name in raw_file_names:
+        print('Processing {}'.format(raw_file_name))
         raw_file_path = os.path.join(RAW_OVERVIEWS_DIR, raw_file_name)
         # Don't think we need to backup DDS file
         with BackedUpFile(raw_file_path):
@@ -108,6 +106,7 @@ def convert_from_raw():
             image = image.transpose(Image.FLIP_TOP_BOTTOM)
 
             image = image.resize((1024, 1024))
+            image = image.convert("RGB")
             image.save(dest_path)
 
 if __name__ == '__main__':

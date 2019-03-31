@@ -10,7 +10,7 @@ for file in $(ls ${BASE_DIR}/overviews/raw/*_radar.dds); do
     echo "Creating $(basename "${target}")"
     convert "${file}" "${target}"
     case "${name}" in
-        de_lake|de_mirage)
+        de_lake)
 	    convert -flip "${target}" "${target}"
 	    ;;
     esac

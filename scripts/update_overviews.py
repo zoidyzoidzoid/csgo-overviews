@@ -99,15 +99,15 @@ def convert_from_raw():
 
             texture.save(dest_path)
 
-            # Resize image using PIL (Pyglet raised seg/bus faults)
-            image = Image.open(dest_path)
+            # # Resize image using PIL (Pyglet raised seg/bus faults)
+            # image = Image.open(dest_path)
 
-            # Not sure why but the images are being flipped somehow
-            image = image.transpose(Image.FLIP_TOP_BOTTOM)
+            # # Not sure why but the images are being flipped somehow
+            # image = image.transpose(Image.FLIP_TOP_BOTTOM)
 
-            image = image.resize((1024, 1024))
-            image = image.convert("RGB")
-            image.save(dest_path)
+            # image = image.resize((1024, 1024))
+            # image = image.convert("RGB")
+            # image.save(dest_path)
 
 if __name__ == '__main__':
     if not os.path.isdir(OVERVIEWS_DIR):

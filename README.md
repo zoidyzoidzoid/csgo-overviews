@@ -4,24 +4,15 @@
 
 This is a collection of radar overviews, and eventually thumbnails,
 in more usable formats, with scripts for easily updating them.
-The scripts use [pyglet](https://warehouse.python.org/project/pyglet/) to convert 
-the raw DDS files to PNG files, and then [Pillow](https://warehouse.python.org/project/Pillow/) to resize
-the PNG files.
+The scripts use [imagemagick](https://imagemagick.org/index.php) to convert
+the raw DDS files to JPEG files.
 
-The converting stuff should work for any DDS files to PNG.
+The converting stuff should work for any DDS files to JPEG.
 
 If you're just looking for image versions of the maps, go to the [Releases](https://github.com/zoidbergwill/csgo-overviews/releases)
 and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overviews/releases/download/0.0.3/overviews.zip)
 
 ## Updating the overviews
-
-* Prepare the virtualenv:
-
-```bash
-  virtualenv virtualenv
-  . virtualenv/bin/activate
-  pip install -r requirements.txt
-```
 
 * Drop the `.dds` files from `common/Counter-Strike Global Offensive/csgo/resource/overviews` in
 `csgo-overviews/overviews/raw`.
@@ -29,7 +20,7 @@ and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overvi
 * Run the script:
 
 ```bash
-  scripts/update_overviews.py
+  scripts/update_overviews.sh
 ```
 
 ## Contributing

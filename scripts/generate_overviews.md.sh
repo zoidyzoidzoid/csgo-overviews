@@ -2,7 +2,12 @@
 {
   echo "# Overviews"
   for i in $(echo overviews/*.jpg); do
-    echo "## $(echo $i | cut -d "/" -f 2- | cut -d "." -f 1)"
+    fn="$(basename "${i}" ".jpg")"
+    title="${fn}"
+    if [[ "${fn}" =~ .*_spectate$ ]]; then
+      title="$(basename "${fn}" _spectate) (Spectator Version)"
+    fi
+    echo "## ${title}"
     echo "![]($i)"
     echo
   done

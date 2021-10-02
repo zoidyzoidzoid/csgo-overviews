@@ -10,7 +10,9 @@ the raw DDS files to JPEG files.
 The converting stuff should work for any DDS files to JPEG.
 
 If you're just looking for image versions of the maps, go to the [Releases](https://github.com/zoidbergwill/csgo-overviews/releases)
-and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overviews/releases/download/3.0.0/overviews.zip)
+and get the latest [`overviews.zip`](https://github.com/zoidbergwill/csgo-overviews/releases/download/4.0.0/overviews.zip)
+
+If you'd like a different solution, you can check out [SimpleRadar](https://readtldr.gg/simpleradar).
 
 ## Updating the overviews
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 {
   echo "# Overviews"
-  for i in $(echo overviews/*.jpg); do
-    fn="$(basename "${i}" ".jpg")"
+  for i in $(echo overviews/*.png); do
+    fn="$(basename "${i}" ".png")"
     title="${fn}"
     if [[ "${fn}" =~ .*_spectate$ ]]; then
       title="$(basename "${fn}" _spectate) (Spectator Version)"
